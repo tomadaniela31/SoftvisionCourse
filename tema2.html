@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <script>
+        console.log("Exercitiul 1:");
+        var text;
+        function conversie(text)
+        {
+            var valoare=0;
+            switch(text){
+                case "usd":
+                 valoare=748*0.223272;
+                 break;
+                 case "eur":
+                 valoare=748*0.206908;
+                 break;
+                 case "huf":
+                 valoare=748*75.5567;
+                 break;
+                 
+
+            }
+            return valoare;
+        }
+        var eur,huf,usd;
+        eur=conversie("eur");
+        huf=conversie("huf");
+        usd=conversie("usd");
+        console.log("748 lei = "+eur+" EUR = "+huf+" HUF = "+usd+" USD");
+        
+        
+        console.log("Exercitiul2:");
+        function tipulParam(parametru){
+            return typeof parametru;
+        }
+        var parametru1="Ana", parametru2=23, parametru3=true, parametru4=1.546,parametru5=[1,2,3,4,5];
+        console.log(parametru1+":"+tipulParam(parametru1));
+        console.log(parametru2+":"+tipulParam(parametru2));
+        console.log(parametru3+":"+tipulParam(parametru3));
+        console.log(parametru4+":"+tipulParam(parametru4));
+        console.log(parametru5+":"+tipulParam(parametru5));
+        
+        
+        console.log("Exercitul3:");
+        var text="Universitatea Tehnica Cluj Napoca",newtext="",j=0;
+        const fraze = [
+"Quisque faucibus ipsum id nibh egestas bibendum.",
+"Phasellus tincidunt sapien nec est tempus lacinia.",
+"Curabitur ac elit at turpis ultrices hendrerit at et tellus.",
+"Praesent a magna a ligula gravida sodales eu ut erat.",
+"Ut eleifend velit vitae ipsum mattis viverra."
+]
+        
+        function isletter(c)
+        {
+            return c.toLowerCase() != c.toUpperCase();
+        }
+        function firstLetter(text){
+            newtext=newtext+text[0];
+            for(var i=1;i<text.length;i++)
+                if(isletter(text[i]) && text[i-1]==' ')
+                newtext=newtext+text[i];
+        }
+        firstLetter(text);
+        console.log(newtext);
+        for(var pos=0;pos<fraze.length;pos++)
+            {
+            newtext="";
+            var textFr=fraze[pos];
+           firstLetter(textFr);
+           console.log(newtext);
+            }
+        
+
+        console.log("Exercitiul4:");
+        class Shape
+        {
+
+            constructor(culoare, laturi=[])
+            {
+            this.culoare=culoare;
+            this.laturi=laturi;
+            }
+
+            
+            TypeOfShape()
+            {
+                switch(this.laturi.length)
+                {
+                    case 3:
+                         return 'triunghi';
+                        
+                    case 4:
+                        return 'patrulater';
+                        
+                    case 5:
+                        return 'pentagon';
+                       
+                    case 6:
+                        return 'hexagon';
+                        
+                    default:
+                        return 'WORK IN PROGRESS';
+                       
+                }
+
+            }
+            
+            Perimetru()
+            {
+                var perimetru=0;
+                for(var i=0;i<this.laturi.length;i++)
+                perimetru=perimetru+this.laturi[i];
+                return perimetru;
+            }
+
+            Semiperimetru()
+            {
+                let perimetru=this.Perimetru();
+                return perimetru/2.0;
+            }
+
+
+
+        }
+        const myShape=new Shape("rosu",[3,6,3,6]);
+        console.log("tipul poligonului:"+myShape.TypeOfShape());
+        console.log("perimetru:"+myShape.Perimetru());
+        console.log("semiperimetru:"+myShape.Semiperimetru());
+        console.log("culoarea:"+myShape.culoare);
+
+
+        console.log("Exercitul5:");
+
+        class Patrat extends Shape
+        {
+            constructor(culoare,laturi=[])
+            {
+                super(culoare,laturi);
+            }
+            
+            Aria()
+            {
+                return this.laturi[0]*this.laturi[0];
+            }
+            
+        }
+
+        class Dreptunghi extends Shape{
+            constructor(culoare,laturi=[])
+            {
+                super(culoare,laturi);
+            }
+            
+            AriaD()
+            {
+                return this.laturi[0]*this.laturi[1];
+            }
+        }
+        console.log("Prima figura:");
+        const patrat=new Patrat("galben",[2,2,2,2]);
+        console.log("tipul poligonului:"+patrat.TypeOfShape());
+        console.log("perimetru:"+patrat.Perimetru());
+        console.log("semiperimetru:"+patrat.Semiperimetru());
+        console.log("culoarea:"+patrat.culoare);
+        console.log("Aria patratului este:"+patrat.Aria());
+        console.log("A doua formula:");
+        const dreptunghi=new Dreptunghi("alb",[2,5,2,5]);
+        console.log("tipul poligonului:"+dreptunghi.TypeOfShape());
+        console.log("perimetru:"+dreptunghi.Perimetru());
+        console.log("semiperimetru:"+dreptunghi.Semiperimetru());
+        console.log("culoarea:"+dreptunghi.culoare);
+        console.log("Aria dreptunghiului este:"+dreptunghi.AriaD());
+        </script>
+
+        
+
+</body>
+</html>
